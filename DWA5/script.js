@@ -16,9 +16,10 @@ form.addEventListener("submit", (event) => {
     result.innerText = "Division not performed. Invalid number provided. Try again";
     console.error()
     //when an input is not a number
-  } else if(isNaN(dividend) || (isNaN(divider))){
+  } else  if(isNaN(dividend) || (isNaN(divider))){
+    document.body.innerHTML = 'Something critical went wrong. Please reload the page!' 
     console.error (new error(`Something critical went wrong. Please reload the page!`)); 
-    document.body.innerHTML = '<h1>Something critical went wrong. Please reload the page!</h1>' 
+    
   } 
   // to zero decimal
   else{
