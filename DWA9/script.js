@@ -175,28 +175,48 @@ document.querySelector('[data-search-form]').addEventListener('submit', (event) 
 })
 //display book details
 function previewBooks() {
-  document.querySelector('[data-list-items]').addEventListener('click', (event) => {
-    const pathArray = Array.from(event.path || event.composedPath())
-    let active = null
-    for (const node of pathArray) {
-        if (active) break
+    document.querySelector('[data-list-items]').addEventListener('click', (event) => {
+      const pathArray = Array.from(event.path || event.composedPath());
+      let active = null;
+      for (const node of pathArray) {
+        if (active) break;
         if (node?.dataset?.preview) {
-            let result = null
-            for (const singleBook of books) {
-                if (result) break;
-                if (singleBook.id === node?.dataset?.preview) result = singleBook
-            }
-            active = result
+          let result = null;
+          for (const singleBook of books) {
+            if (result) break;
+            if (singleBook.id === node?.dataset?.preview) result = singleBook;
+            console.log(singleBook)
+          }
+          active = result;
         }
-    }
-    if (active) {
-        document.querySelector('[data-list-active]').open = true
-        document.querySelector('[data-list-blur]').src = active.image
-        document.querySelector('[data-list-image]').src = active.image
-        document.querySelector('[data-list-title]').innerText = active.title
-        document.querySelector('[data-list-subtitle]').innerText = `${authors[active.author]} (${new Date(active.published).getFullYear()})`
-        document.querySelector('[data-list-description]').innerText = active.description
-    }
-})
-}
-previewBooks()
+      }
+      if (active) {
+        document.querySelector('[data-list-active]').open = true;
+  
+        const blurImage = document.querySelector('[data-list-blur]');
+        const mainImage = document.querySelector('[data-list-image]');
+        const title = document.querySelector('[data-list-title]');
+        const subtitle = document.querySelector('[data-list-subtitle]');
+        const description = document.querySelector('[data-list-description]');
+  
+        const shadowRoot = blurImage.attachShadow({ mode: 'open' });
+  
+        const template = document.createElement('template');
+        template.innerHTML = `
+          
+          <img src="${active.image}" />
+        `;
+  
+        shadowRoot.appendChild(template.content.cloneNode(true));
+  
+        blurImage.src = active.image;
+        mainImage.src = active.image;
+        title.innerText = active.title;
+        subtitle.innerText = `${authors[active.author]} (${new Date(active.published).getFullYear()})`;
+        description.innerText = active.description;
+      }
+    });
+  }
+  
+  previewBooks();
+  
