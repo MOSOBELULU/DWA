@@ -1,3 +1,4 @@
+
 const MIN_NUMBER = -15
 const MAX_NUMBER = 15
 

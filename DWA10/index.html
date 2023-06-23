@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tally Count</title>
+    <script type="module" defer src="./index.js"></script>
     <link rel="stylesheet" href="./stylesheet.css">
-    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
+    <title>DWA10 Tally App</title>
 </head>
 <body>
-<header class="header">
-    <h1 class="header_title">Tally Count</h1>
-    <button class="reset" data-key="reset">RESET</button>
-</header>
-<!-- <aside class="controls">
-    <label>
-        <span>Display</span>
-        <select>
-            <option>Single</option>
-            <option>Multiple</option>
-        </select>
-    </label>
-    <label>
-        <span> Counter</span>
-        <select>
-            <option> counter 1</option>
-            <option> counter 2</option>
-            <option> Counter 3</option>
-        </select>
-    </label>
-    <button>settings</button>
-</aside> -->
-<main class="counter">
-    <input readonly value="0" data-key="number" class="counter_value">
-    <div class="counter_actions">
-        <button class="counter_button counter_button_first" data-key="subtract">-</button>
-        <button class="counter_button" data-key="add">+</button>
+    <header>
+        <h1>Tally count</h1>
+    </header>
+    <sl-input
+        id="counter-value"
+        data-key="number"
+        readonly value="0">
+    </sl-input>
+    <div class="tally-box">
+        <sl-icon-button
+            data-key="subtract"
+            class="counter-button"
+            name="arrow-down-circle"
+            >
+        </sl-icon-button>
+        <sl-icon-button
+            data-key="add"
+            class="counter-button"
+            name="arrow-up-circle">
+        </sl-icon-button>
     </div>
-</main>
-<footer class="footer">
-    Inspired by <a href="https://tallycount.app/" class="footer_link">Tally Count</a>. Note that this is merely a
-    student practice project for learning Javascript.
-</footer>
-
+        <sl-icon-button
+            data-key="reset"
+            class="reset-button"
+            name="arrow-repeat">
+        </sl-icon-button>
+        <sl-dialog
+            data-reset-overlay
+            label="Confirmation Message"
+            class="reset-overlay">
+        <p>Resting to 0</p>
+        </sl-dialog>
 </body>
 </html>
