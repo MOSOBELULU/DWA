@@ -11,36 +11,17 @@
 </head>
 <body>
     <header>
-        <h1>Tally count</h1>
+        <h1>TALLY COUNT APP</h1>
     </header>
     <sl-input
-        id="counter-value"
-        data-key="number"
-        readonly value="0">
-    </sl-input>
-    <div class="tally-box">
-        <sl-icon-button
-            data-key="subtract"
-            class="counter-button"
-            name="arrow-down-circle"
-            >
-        </sl-icon-button>
-        <sl-icon-button
-            data-key="add"
-            class="counter-button"
-            name="arrow-up-circle">
-        </sl-icon-button>
+        id="counter-value" data-key="number" readonly value="0"></sl-input>
+    <div class="tally-buttons">
+        <sl-button data-key="subtract" class="counter-button" > - </sl-button>
+        <sl-button data-key="add"  class="counter-button" > + </sl-button> 
     </div>
-        <sl-icon-button
-            data-key="reset"
-            class="reset-button"
-            name="arrow-repeat">
-        </sl-icon-button>
-        <sl-dialog
-            data-reset-overlay
-            label="Confirmation Message"
-            class="reset-overlay">
-        <p>Resting to 0</p>
+        <sl-button  data-key="reset" class="reset-button" name="arrow-repeat"> RESET </sl-button>
+        <sl-dialog data-reset-overlay label="Confirmation Message" class="reset-overlay"></sl-dialog>
+        
         </sl-dialog>
 </body>
 </html>
