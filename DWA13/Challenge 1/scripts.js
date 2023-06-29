@@ -6,16 +6,18 @@ names.forEach((names) => {
 })
 console.log('')
 
-names.forEach((names, provinces) => {
-    console.log(names, provinces[provinces])
+
+//names and provinces
+names.forEach((names, province) => {
+    console.log(names, ':' , provinces[province])
 })
 
 console.log(' ')
 
 //upper case
 provinces.map(function(provinces) {
-    const provinces = provinces.toUpperCase()
-    console.log(provinces)
+    const province = provinces.toUpperCase()
+    console.log(province)
 })
 //creating an array
 const lengthofNames = names.map(name => name.length);
@@ -34,3 +36,14 @@ const filterProvinceCount = provinces.filter(provinces => !provinces.includes('C
 console.log(filterProvinceCount);
 
 console.log('')
+
+const hasSArray = names.map((name) => name.includes('S'));
+console.log(hasSArray);
+
+// const provinceObject = names.reduce((acc, name, index) => {
+//     acc[name] = provinces[index];
+//     console.log(acc);
+//   }, {});
+
+
+
